@@ -57,7 +57,7 @@ const config_EsmMinify = {
     ...config_Basic,
     output: {
         ...config_Basic.output,
-        filename: 'index.module.min.js',
+        filename: 'index.min.js',
     },
     optimization: { minimize: true }
 };
@@ -68,7 +68,7 @@ const config_EsmNoMinify = {
     ...config_Basic,
     output: {
         ...config_Basic.output,
-        filename: 'index.module.js',
+        filename: 'index.js',
     },
     optimization: { minimize: false },
 };

@@ -61,7 +61,7 @@ Please note that no tree shaking will take place in this case.
 <html lang="en">
 <head>
     <script type="module">
-        import { cubicBeziersThroughPoints } from './node_modules/cubic-beziers-through-points/browser/index.module.min.js';
+        import { cubicBeziersThroughPoints } from './node_modules/cubic-beziers-through-points/browser/index.min.js';
 
         // define some points (there must be at least 3!)
         const points = [[6.4, 4.8], [15, 5], [1, 4], [10, 4]];
