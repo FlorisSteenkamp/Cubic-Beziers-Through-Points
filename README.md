@@ -10,7 +10,7 @@ Note that it is assumed the first and last points are connected (implicitly) so
 that it forms a loop. This is not a technical requirement though and the code
 can easily be modified to accomodate open endpoints as well.
 
-[The pink curves between yellow points are the calculated cubic bezier curves](https://github.com/FlorisSteenkamp/Cubic-Beziers-Through-Points/blob/master/cubic-beziers-through-points.png)
+![The pink curves between yellow points are the calculated cubic bezier curves](https://github.com/FlorisSteenkamp/Cubic-Beziers-Through-Points/blob/master/cubic-beziers-through-points.png)
 
 
 ## Features
