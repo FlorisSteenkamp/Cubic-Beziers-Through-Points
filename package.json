@@ -3,6 +3,7 @@
     "sideEffects": false,
     "version": "0.0.5",
     "description": "A function to fit fair (bending energy minimizing) cubic bezier curves through a set of given ordered points in the plane.",
+    "main": "./node/index.js",
     "exports": "./node/index.js",
     "engines": {
         "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
