@@ -39,6 +39,8 @@ This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908
 It can be used in `Node.js` or in a browser.
 
 ## Usage
+
+### Node.js
 ```js
 import { cubicBeziersThroughPoints } from 'cubic-beziers-through-points';
 
@@ -48,6 +50,55 @@ const cubics = cubicBeziersThroughPoints(points);
 console.log(cubics);  //=> [[[6, 4],[8.982969047258369, 4.461526569343107]...]]]
 // ...
 ```
+
+### Browsers - directly, without a bundler, using the pre-bundled minified .js file
+
+Please note that no tree shaking will take place in this case.
+
+```html
+<!doctype html>
+
+<html lang="en">
+<head>
+    <script type="module">
+        import { cubicBeziersThroughPoints } from './node_modules/cubic-beziers-through-points/browser/index.module.min.js';
+
+        // define some points (there must be at least 3!)
+        const points = [[6.4, 4.8], [15, 5], [1, 4], [10, 4]];
+        const cubics = cubicBeziersThroughPoints(points);
+        console.log(cubics);  //=> [[[6, 4],[8.982969047258369, 4.461526569343107]...]]]
+        // ...
+    </script>
+</head>
+
+<body>Check the console.</body>
+
+</html>
+```
+
+### Bundlers (Webpack, Rollup, ...)
+
+Tree shaking will take place if supported by your bundler.
+
+Webpack will be taken as an example here. 
+
+Since your webpack config file might still use `CommonJS` you must rename 
+`webpack.config.js` to `webpack.config.cjs`.
+
+If you are using TypeScript:
+
+Since this is an [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
+library you must use [resolve-typescript-plugin](https://www.npmjs.com/package/resolve-typescript-plugin) 
+in your `webpack.config.cjs` file.
+
+```cli
+npm install --save-dev resolve-typescript-plugin
+```
+
+and follow the instructions given at [resolve-typescript-plugin](https://www.npmjs.com/package/resolve-typescript-plugin).
+
+Additionally, follow this [guide](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c#how-can-i-make-my-typescript-project-output-esm).
+
 
 ## License
 Public Domain and/or WTFPL v. 4.0
