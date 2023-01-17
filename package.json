@@ -33,7 +33,7 @@
         "chai": "^4.3.7",
         "chai-asserttype": "^1.0.5",
         "mocha": "^10.2.0",
-        "rimraf": "^4.0.7",
+        "rimraf": "^4.1.0",
         "squares-rng": "^2.0.0",
         "typescript": "^4.9.4"
     },
