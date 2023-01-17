@@ -1,0 +1,9 @@
+.vscode/
+npm-debug.log
+node_modules/
+papers/
+todo.txt
+notes.txt
+coverage/
+*.py
+src/__pycache__/
