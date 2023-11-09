@@ -2,7 +2,7 @@ Bug reports, pull requests and ⭐⭐⭐⭐⭐s are welcome and appreciated!
 
 ## Overview
 
-This is a simple library exposing a single function, `cubicBeziersThroughPoints`,
+This is a simple library exporting a single function, `cubicBeziersThroughPoints`,
 to fit fair (bending energy minimizing) cubic bezier curves through a set of
 given ordered points in the plane.
 
@@ -29,6 +29,8 @@ conditions are not met; please see the research paper quoted above for further d
 
 This library solves the above 'bezier-curves-with-loops' problem by minimizing the bending energy of the
 bezier curves under the constraint that the 'terminal speeds' equal exactly 1.
+
+This library now also exports the function `cubicBeziersThroughPoints_C2`.
 
 ## Installation
 ```cli

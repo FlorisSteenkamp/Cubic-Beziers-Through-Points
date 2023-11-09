@@ -2,6 +2,7 @@ import { cubicToAnglesAndSpeeds } from "flo-bezier3";
 import { getEα, getPssByα } from './get-e-alpha.js';
 import { miniAlphaLoops } from './consts.js';
 import { getInfos } from './get-infos/get-infos.js';
+import { removeIdenticalPoints } from './remove-identical-points.js';
 /**
  * Returns an array of cubic bezier curves forming a loop going through all
  * the given ordered points such that the binding energy of the loop is near
@@ -23,7 +24,7 @@ import { getInfos } from './get-infos/get-infos.js';
  * @param points an ordered array of planar points
  */
 function cubicBeziersThroughPoints(points) {
-    const infos = getInfos(points);
+    const infos = getInfos(removeIdenticalPoints(points));
     const len = infos.length;
     for (let j = 0; j < miniAlphaLoops; j++) {
         for (let i = 0; i < len; i++) {

@@ -5,9 +5,9 @@ module.exports = {
         "node": true
     },
     "ignorePatterns": [
-        "node_modules/**/*",
         "*.cjs",
         "*.min.js",
+        "node_modules/",
         "dist/**/*",
         "build/**/*",
         "node/**/*",
@@ -40,6 +40,7 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/no-empty-interface': 'off',
+        '@typescript-eslint/no-loss-of-precision': 'off',
         "tree-shaking/no-side-effects-in-initialization": [
             2,
             {
@@ -54,8 +55,7 @@ module.exports = {
                     {
                         "module": "flo-memoize",
                         "functions": ["memoize"],
-                    },
-                    
+                    }
                 ]
             }
         ]

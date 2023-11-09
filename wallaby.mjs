@@ -29,4 +29,4 @@ export default function(wallaby) {
 
         maxConsoleMessagesPerTest: 250
     };
-};
+}

@@ -2,6 +2,7 @@ import { cubicToAnglesAndSpeeds } from "flo-bezier3";
 import { getEα, getPssByα } from './get-e-alpha.js';
 import { miniAlphaLoops } from './consts.js';
 import { getInfos } from './get-infos/get-infos.js';
+import { removeIdenticalPoints } from './remove-identical-points.js';
 
 
 /**
@@ -27,7 +28,8 @@ import { getInfos } from './get-infos/get-infos.js';
 function cubicBeziersThroughPoints(
         points: number[][]): number[][][] {
 
-    const infos = getInfos(points);
+    
+    const infos = getInfos(removeIdenticalPoints(points));
 
     const len = infos.length;
 
