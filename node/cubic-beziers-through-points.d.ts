@@ -18,5 +18,10 @@
  *
  * @param points an ordered array of planar points
  */
+declare function cubicsAndEnergyThroughPoints(points: number[][]): {
+    cubics: number[][][];
+    Energy: number;
+};
+declare function energyThroughPoints(points: number[][]): number;
 declare function cubicBeziersThroughPoints(points: number[][]): number[][][];
-export { cubicBeziersThroughPoints };
+export { cubicBeziersThroughPoints, energyThroughPoints, cubicsAndEnergyThroughPoints };

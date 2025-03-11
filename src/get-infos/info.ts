@@ -27,7 +27,7 @@ interface Info {
 
     l: number;  // left
     m: number;  // mid
-    r: number;  // righ
+    r: number;  // right
 }
 
 

@@ -23,10 +23,12 @@ import { removeIdenticalPoints } from './remove-identical-points.js';
  *
  * @param points an ordered array of planar points
  */
-function cubicBeziersThroughPoints(points) {
+function cubicsAndEnergyThroughPoints(points) {
     const infos = getInfos(removeIdenticalPoints(points));
     const len = infos.length;
+    let Energy = 0;
     for (let j = 0; j < miniAlphaLoops; j++) {
+        Energy = 0; // reset
         for (let i = 0; i < len; i++) {
             const info = infos[i];
             const _info = info._info;
@@ -43,6 +45,7 @@ function cubicBeziersThroughPoints(points) {
                 if ((L >= M && M <= R)) {
                     info.l = m - halfSpan / 2;
                     info.r = m + halfSpan / 2;
+                    Energy += M;
                     break;
                 }
                 else if ((L <= M && M <= R)) {
@@ -79,7 +82,22 @@ function cubicBeziersThroughPoints(points) {
         }
     }
     const cubics = infos.map(info => info.ps);
-    return cubics;
+    return { cubics, Energy };
 }
-export { cubicBeziersThroughPoints };
+function energyThroughPoints(points) {
+    const infos = getInfos(removeIdenticalPoints(points));
+    const len = infos.length;
+    let Energy = 0;
+    for (let i = 0; i < len; i++) {
+        const info = infos[i];
+        const getE_ = getEα(info);
+        let M = getE_(info.m);
+        Energy += M;
+    }
+    return Energy;
+}
+function cubicBeziersThroughPoints(points) {
+    return cubicsAndEnergyThroughPoints(points).cubics;
+}
+export { cubicBeziersThroughPoints, energyThroughPoints, cubicsAndEnergyThroughPoints };
 //# sourceMappingURL=cubic-beziers-through-points.js.map

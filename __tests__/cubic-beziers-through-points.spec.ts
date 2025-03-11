@@ -1,19 +1,19 @@
-import { expect, assert, use } from 'chai';
-import { describe, it } from 'mocha';
-import { cubicBeziersThroughPoints } from '../src/index.js';
-import { nearly } from './helpers/chai-extend-nearly.js';
-import { getRandomPoints } from './helpers/get-random-points.js';
+// import { expect, assert, use } from 'chai';
+// import { describe, it } from 'mocha';
+import { cubicBeziersThroughPoints } from '../src/cubic-beziers-through-points';
+// import { nearly } from './helpers/chai-extend-nearly.js';
+import { getRandomPoints } from './helpers/get-random-points';
 
-use(nearly);
+// use(nearly);
 
 
-describe('cubicBeziersThroughPoints', function() {
+test('cubicBeziersThroughPoints', function() {
 	it('it should return minimum energy cubic bezier curves through the set of ordered points',
 	function() {
 		{
             const points = [[6, 4], [15, 5], [1, 4]];
             const r = cubicBeziersThroughPoints(points);
-            expect(r).to.be.eql([
+            expect(r).toEqual([
 				[
 					[6, 4],
 					[8.982969047258369, 4.461526569343107],
@@ -37,7 +37,7 @@ describe('cubicBeziersThroughPoints', function() {
         {
             const points = getRandomPoints(0,5);
             const r = cubicBeziersThroughPoints(points);
-            expect(r).to.be.eql([
+            expect(r).toEqual([
 				[
 					[146427211, 1411582374],
 				   	[136485161.2821315, 2444724009.2703714],
