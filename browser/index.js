@@ -25,7 +25,9 @@ var __webpack_exports__ = {};
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   r: () => (/* reexport */ cubicBeziersThroughPoints),
-  B: () => (/* reexport */ cubicBeziersThroughPoints_C2)
+  B6: () => (/* reexport */ cubicBeziersThroughPoints_C2),
+  RX: () => (/* reexport */ cubicsAndEnergyThroughPoints),
+  nV: () => (/* reexport */ energyThroughPoints)
 });
 
 ;// ./node_modules/flo-vector2d/node/affine-transformations/translate/translate.js
@@ -3012,7 +3014,7 @@ function cubicFromAnglesAndSpeeds(anglesAndSpeeds) {
  * Returns the bending energy of the given curve (within info) with the `α`
  * angle replaced with the given one.
  */
-function get_e_alpha_getE_(info) {
+function getEα(info) {
     return (α) => {
         const [_ps, ps_] = getPssByα(α, info);
         const e_ = getBendingEnergy(ps_);
@@ -3090,7 +3092,7 @@ const { min, max, PI: get_infos_, atan2: get_infos_atan2, sin: get_infos_sin, co
  *
  * @param hull
  */
-function get_infos_getInfos(hull) {
+function getInfos(hull) {
     const len = hull.length;
     const infos = [];
     for (let i = 0; i < len; i++) {
@@ -3196,7 +3198,7 @@ const DualSetFs = { has, add: dual_set_add, remove };
 
 ;// ./src/remove-identical-points.ts
 
-function remove_identical_points_removeIdenticalPoints(ps) {
+function removeIdenticalPoints(ps) {
     const set = new Map();
     for (const p of ps) {
         DualSetFs.add(set, p[0], p[1]);
@@ -3239,7 +3241,7 @@ function remove_identical_points_removeIdenticalPoints(ps) {
  * @param points an ordered array of planar points
  */
 function cubicsAndEnergyThroughPoints(points) {
-    const infos = get_infos_getInfos(remove_identical_points_removeIdenticalPoints(points));
+    const infos = getInfos(removeIdenticalPoints(points));
     const len = infos.length;
     let Energy = 0;
     for (let j = 0; j < miniAlphaLoops; j++) {
@@ -3247,7 +3249,7 @@ function cubicsAndEnergyThroughPoints(points) {
         for (let i = 0; i < len; i++) {
             const info = infos[i];
             const _info = info._info;
-            const getE_ = get_e_alpha_getE_(info);
+            const getE_ = getEα(info);
             let halfSpan;
             let { l, m, r } = info;
             let L = getE_(l);
@@ -3425,5 +3427,7 @@ function cubicBeziersThroughPoints_C2(ps) {
 
 
 var __webpack_exports__cubicBeziersThroughPoints = __webpack_exports__.r;
-var __webpack_exports__cubicBeziersThroughPoints_C2 = __webpack_exports__.B;
-export { __webpack_exports__cubicBeziersThroughPoints as cubicBeziersThroughPoints, __webpack_exports__cubicBeziersThroughPoints_C2 as cubicBeziersThroughPoints_C2 };
+var __webpack_exports__cubicBeziersThroughPoints_C2 = __webpack_exports__.B6;
+var __webpack_exports__cubicsAndEnergyThroughPoints = __webpack_exports__.RX;
+var __webpack_exports__energyThroughPoints = __webpack_exports__.nV;
+export { __webpack_exports__cubicBeziersThroughPoints as cubicBeziersThroughPoints, __webpack_exports__cubicBeziersThroughPoints_C2 as cubicBeziersThroughPoints_C2, __webpack_exports__cubicsAndEnergyThroughPoints as cubicsAndEnergyThroughPoints, __webpack_exports__energyThroughPoints as energyThroughPoints };
