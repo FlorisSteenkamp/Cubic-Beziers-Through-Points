@@ -1,7 +1,7 @@
 {
     "name": "cubic-beziers-through-points",
     "sideEffects": false,
-    "version": "0.0.7",
+    "version": "0.1.0",
     "description": "A function to fit fair (bending energy minimizing) cubic bezier curves through a set of given ordered points in the plane.",
     "main": "./node/index.js",
     "exports": "./node/index.js",
